@@ -1,8 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import utility.Functions;
 
@@ -14,28 +15,40 @@ public class LoginPage extends Functions {
 
 		this.driver = driver;
 
+
 	}
 
-	By user = By.id("txtUsername");
+	/*
+	 * By user = By.id("txtUsername");
+	 * 
+	 * By pwd = By.id("txtPassword");
+	 * 
+	 * By login = By.name("Submit");
+	 */
 
-	By pwd = By.id("txtPassword");
+	@FindBy(id = "txtUsername")
+	WebElement user;
 
-	By login = By.name("Submit");
+	@FindBy(id = "txtPassword")
+	WebElement pwd;
+
+	@FindBy(name = "Submit")
+	WebElement login;
 
 	public WebElement getUser() {
 
-		return driver.findElement(user);
+		return user;
 
 	}
 
 	public WebElement getPwd() {
 
-		return driver.findElement(pwd);
+		return pwd;
 	}
 
 	public WebElement getLogin() {
 
-		return driver.findElement(login);
+		return login;
 	}
 
 	public void loginApp() {

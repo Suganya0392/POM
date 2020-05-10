@@ -13,11 +13,13 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Functions {
 
-	WebDriver driver;
+	static WebDriver driver;
 
-	public String readPropertyFile(String key) {
+	static Properties properties;
 
-		Properties properties = new Properties();
+	public static String readPropertyFile(String key) {
+
+		properties = new Properties();
 
 		try {
 			properties.load(new FileInputStream("./configuration/config.properties"));
@@ -33,7 +35,7 @@ public class Functions {
 
 	}
 
-	public WebDriver browserFactory(String key) {
+	public static WebDriver browserFactory(String key) {
 
 		String browser = readPropertyFile(key);
 
@@ -65,6 +67,7 @@ public class Functions {
 		driver.get(readPropertyFile("url"));
 
 		driver.manage().window().maximize();
+		
 		return driver;
 
 	}
